@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  home:
+    image: nginx
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+    ports:
+      - 8080:80
+  redis:
+    image: redis:alpine
+    expose:
+      - 1234
+  webserverexpress:
+    build: .
+    ports:
+      - 8088:3000
